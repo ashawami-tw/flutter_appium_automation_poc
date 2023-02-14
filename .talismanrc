@@ -11,3 +11,8 @@ fileignoreconfig:
   checksum: 77a1730ef3f5be9dfb52b801a535875fb30c9b544b01ca4f662be0b5c7a8d970
 - filename: config/wdio.android.conf.ts
   checksum: 01b26bb5b91a601fefbcec2bbee691d34a761511ceba2a7ba90f75208e3430b6
+
+fileignoreconfig:
+
+- filename: config/wdio.flutter.conf.ts
+  checksum: bf86d40e8b7b1288dece4d96ac4de940194552ddcc7ee72522b0ce7c854d9f81
