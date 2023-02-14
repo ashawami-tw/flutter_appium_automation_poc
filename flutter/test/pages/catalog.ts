@@ -1,4 +1,4 @@
-import { byText, byType } from 'appium-flutter-finder';
+import { byText } from 'appium-flutter-finder';
 
 class CatalogFlutter {
   public pageTitleText = 'Catalog';
