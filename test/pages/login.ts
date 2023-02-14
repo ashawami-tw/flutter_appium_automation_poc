@@ -1,9 +1,9 @@
 class Login {
-  private get inputUsername() {
+  private get username() {
     return $('//android.widget.EditText[1]');
   }
 
-  private get inputPassword() {
+  private get password() {
     return $('//android.widget.EditText[2]');
   }
 
@@ -16,15 +16,15 @@ class Login {
   }
 
   public async setUsername(username: string) {
-    await this.inputUsername.click();
+    await this.username.click();
     await driver.hideKeyboard();
-    await this.inputUsername.addValue(username);
+    await this.username.addValue(username);
   }
 
   public async setPassword(password: string) {
-    await this.inputPassword.click();
+    await this.password.click();
     await driver.hideKeyboard();
-    await this.inputPassword.addValue(password);
+    await this.password.addValue(password);
   }
 
   public async clickSubmit() {
