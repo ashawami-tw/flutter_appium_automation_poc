@@ -19,7 +19,7 @@ describe('Add items to the cart', () => {
     await login.getPageTitle();
     await login.login(testData.username, testData.password);
     await catalog.getPageTitle();
-    await catalog.addTocart(testData.items[0]);
+    await catalog.addToCart(testData.items[0]);
     await catalog.openCart();
     await cart.getPageTitle();
     const isPresent = await cart.isItemPresentInCart(testData.items[0]);

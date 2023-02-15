@@ -1,3 +1,5 @@
+import Gestures from '../helpers/gestures';
+
 class Catalog {
   public pageTitleDescription = 'Catalog';
 
@@ -12,25 +14,29 @@ class Catalog {
     return $('(//android.widget.Button)[1]');
   }
 
-  public async scrollTillGettingItem(item: string) {
+  public async scrollTillItemIsDisplayedUsingUiSelector(item: string) {
     const scrollTillItem = `new UiScrollable(new UiSelector().className("${this.scrollView}")).scrollIntoView(new UiSelector().description("${item}"))`;
     await $(`android=${scrollTillItem}`);
   }
 
-  public async scrollToTop() {
+  public async scrollToTopUsingUiSelector() {
     const scrollTillTop = `new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().description("${this.pageTitleDescription}"))`;
     await $(`android=${scrollTillTop}`);
   }
 
-  public async addTocart(item: string) {
-    await this.scrollTillGettingItem(item);
+  public async scrollTillItemIsDisplayed(item: string) {
+    await Gestures.checkIfDisplayedWithSwipeUp(await $(`~${item}`), 10, 1);
+  }
+
+  public async addToCart(item: string) {
+    await this.scrollTillItemIsDisplayed(item)
     const locateItem = await $(`~${item}`);
     const addButton = await locateItem.$(`${this.addButton}`);
     await addButton.click();
   }
 
   public async openCart() {
-    await this.scrollToTop();
+    await Gestures.swipeDown(1);
     await this.cart.click();
   }
 
