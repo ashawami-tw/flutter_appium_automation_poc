@@ -1,5 +1,6 @@
 import type { Options } from '@wdio/types';
 import { capabilities } from '../capabilities/flutter';
+import {onComplete} from './allure.report'
 
 export const config: Options.Testrunner = {
   //
@@ -144,7 +145,11 @@ export const config: Options.Testrunner = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec'],
+  reporters: ['spec', ['allure', {
+    outputDir: 'report/allure-results',
+    disableWebdriverStepsReporting: true,
+    disableWebdriverScreenshotsReporting: true,
+  }],],
 
   //
   // Options to be passed to Mocha.
@@ -292,6 +297,8 @@ export const config: Options.Testrunner = {
    */
   // onComplete: function(exitCode, config, capabilities, results) {
   // },
+
+  onComplete: onComplete,
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session

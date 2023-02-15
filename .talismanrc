@@ -23,3 +23,8 @@ fileignoreconfig:
   checksum: 7132924190fa4da7d1b14037d06bdaa3652adcf0f1bc55a73eedc3b4c0c8f110
 - filename: flutter/test/pages/login.ts
   checksum: 66a70c1acd167cf290709a8f3a6c14d659a175fafd48954ca62613797feae2a0
+
+fileignoreconfig:
+- filename: package-lock.json
+  checksum: f998eb6b70378c9a2f6abe220ac2f60abf7c759061d46d6d00cf9a645da1434e
+
