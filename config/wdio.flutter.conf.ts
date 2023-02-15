@@ -1,6 +1,6 @@
 import type { Options } from '@wdio/types';
 import { capabilities } from '../capabilities/flutter';
-import {onComplete} from './allure.report'
+import { onComplete } from './allure.report';
 
 export const config: Options.Testrunner = {
   //
@@ -145,11 +145,17 @@ export const config: Options.Testrunner = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec', ['allure', {
-    outputDir: 'report/allure-results',
-    disableWebdriverStepsReporting: true,
-    disableWebdriverScreenshotsReporting: true,
-  }],],
+  reporters: [
+    'spec',
+    [
+      'allure',
+      {
+        outputDir: 'report/allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+      },
+    ],
+  ],
 
   //
   // Options to be passed to Mocha.

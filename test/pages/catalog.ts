@@ -29,7 +29,7 @@ class Catalog {
   }
 
   public async addToCart(item: string) {
-    await this.scrollTillItemIsDisplayed(item)
+    await this.scrollTillItemIsDisplayed(item);
     const locateItem = await $(`~${item}`);
     const addButton = await locateItem.$(`${this.addButton}`);
     await addButton.click();
