@@ -28,3 +28,8 @@ fileignoreconfig:
 - filename: package-lock.json
   checksum: f998eb6b70378c9a2f6abe220ac2f60abf7c759061d46d6d00cf9a645da1434e
 
+fileignoreconfig:
+- filename: config/wdio.ios.conf.ts
+  checksum: 57a5109b06b61f58001f89387aeb7115063db9973d83126886c0d9029bde7fba
+
+
