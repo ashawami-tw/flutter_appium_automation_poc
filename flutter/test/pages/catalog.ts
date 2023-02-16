@@ -12,7 +12,7 @@ class CatalogFlutter {
     return text;
   }
 
-  public async scroll(dx: number, dy: number, duration: number, frequency: number) {
+  public async scroll(dx: number, dy: number, duration: number = 200, frequency: number = 30) {
     await driver.execute('flutter:scroll', byType('Scrollable'), {
       dx: dx,
       dy: dy,
@@ -21,7 +21,7 @@ class CatalogFlutter {
     });
   }
 
-  public async scrollUntilVisible(item: string, dx: number, dy, number) {
+  public async scrollUntilVisible(item: string, dx: number, dy: number) {
     await driver.execute('flutter:scrollUntilVisible', byType('Scrollable'), {
       item: byText(`${item}`),
       dxScroll: dx,
