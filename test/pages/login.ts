@@ -34,7 +34,7 @@ class Login {
   public async setPassword(password: string) {
     await this.password.click();
     await driver.hideKeyboard();
-    await this.password.setValue(password);
+    await this.password.addValue(password);
   }
 
   public async clickSubmit() {
