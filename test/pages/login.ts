@@ -1,10 +1,20 @@
 class Login {
+  private readonly automationName: string;
+
+  constructor(automationName: string) {
+    this.automationName = automationName;
+  }
+
   private get username() {
-    return $('//android.widget.EditText[1]');
+    return this.automationName === 'uiautomator2'
+      ? $('//android.widget.EditText[1]')
+      : $('~Username');
   }
 
   private get password() {
-    return $('//android.widget.EditText[2]');
+    return this.automationName === 'uiautomator2'
+      ? $('//android.widget.EditText[2]')
+      : $('~Password');
   }
 
   private get btnSubmit() {
@@ -24,7 +34,7 @@ class Login {
   public async setPassword(password: string) {
     await this.password.click();
     await driver.hideKeyboard();
-    await this.password.addValue(password);
+    await this.password.setValue(password);
   }
 
   public async clickSubmit() {
@@ -38,7 +48,10 @@ class Login {
   }
 
   public async getPageTitle() {
-    const description = await this.pageTitle.getAttribute('content-desc');
+    const description =
+      this.automationName === 'uiautomator2'
+        ? await this.pageTitle.getAttribute('content-desc')
+        : await this.pageTitle.getText();
     return description;
   }
 }

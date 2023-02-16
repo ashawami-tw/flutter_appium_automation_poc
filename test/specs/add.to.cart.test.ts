@@ -3,16 +3,22 @@ import Catalog from '../pages/catalog';
 import Cart from '../pages/cart';
 import { testData } from '../test_data/testdata';
 import { assert } from 'chai';
+import Common from '../helpers/common';
 
 describe('Add items to the cart', () => {
   let login: Login;
   let catalog: Catalog;
   let cart: Cart;
+  let automationName: string;
+
+  before(async () => {
+    automationName = await Common.getAutomationName();
+  });
 
   beforeEach(() => {
-    login = new Login();
-    catalog = new Catalog();
-    cart = new Cart();
+    login = new Login(automationName);
+    catalog = new Catalog(automationName);
+    cart = new Cart(automationName);
   });
 
   it('should add one item to the cart', async () => {

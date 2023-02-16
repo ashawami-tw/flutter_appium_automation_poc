@@ -1,6 +1,12 @@
 import Gestures from '../helpers/gestures';
 
 class Catalog {
+  private readonly automationName: string;
+
+  constructor(automationName: string) {
+    this.automationName = automationName;
+  }
+
   public pageTitleDescription = 'Catalog';
 
   private addButton = '//android.widget.Button[@content-desc="ADD"]';
@@ -41,7 +47,10 @@ class Catalog {
   }
 
   public async getPageTitle() {
-    const description = await this.pageTitle.getAttribute('content-desc');
+    const description =
+      this.automationName === 'uiautomator2'
+        ? await this.pageTitle.getAttribute('content-desc')
+        : await this.pageTitle.getText();
     return description;
   }
 }

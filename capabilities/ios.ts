@@ -2,7 +2,7 @@ export const capabilities = [
   {
     // deviceName: 'Samsung Galaxy S.*',
     'appium:deviceName': 'iPhone 14',
-    'appium:udid': '0A5E9FF0-44DE-4E7F-B701-12623AA244C1',
+    'appium:udid': 'E39F06F9-BC80-4DBA-80F3-0FFACE5CE8F4',
     // deviceOrientation: 'portrait',
     'appium:platformVersion': '16.1',
     platformName: 'iOS',

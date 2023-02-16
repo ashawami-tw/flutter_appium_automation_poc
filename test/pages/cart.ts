@@ -1,4 +1,10 @@
 class Cart {
+  private readonly automationName: string;
+
+  constructor(automationName: string) {
+    this.automationName = automationName;
+  }
+
   private get pageTitle() {
     return $('~Cart');
   }
@@ -9,7 +15,10 @@ class Cart {
   }
 
   public async getPageTitle() {
-    const description = await this.pageTitle.getAttribute('content-desc');
+    const description =
+      this.automationName === 'uiautomator2'
+        ? await this.pageTitle.getAttribute('content-desc')
+        : await this.pageTitle.getText();
     return description;
   }
 }

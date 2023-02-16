@@ -15,7 +15,7 @@ describe('Add items to the cart', () => {
     login = new LoginFlutter();
     catalog = new CatalogFlutter();
     cart = new CartFlutter();
-    catalogNative = new Catalog();
+    catalogNative = new Catalog('');
   });
 
   it('should cart page open after clicking on cart button', async () => {

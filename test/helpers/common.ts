@@ -1,10 +1,10 @@
 class Common {
-  static async getAutomationName() {
-    const automationName = (await driver.getSession())['desired'][
-      'automationName'
-    ];
-    console.log('cap...................', automationName);
-    return automationName;
+  public static async getAutomationName() {
+    const currentSession = await driver.getSession();
+    const automation = currentSession.desired?.automationName;
+    return automation !== undefined
+      ? automation
+      : currentSession.automationName;
   }
 }
 
