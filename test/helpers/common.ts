@@ -8,7 +8,7 @@ class Common {
       : currentSession.automationName;
   }
 
-  public static async handle(element) {
+  public static async handleClickForUiAutomator2(element: WebdriverIO.Element) {
     if (Common.automation === 'uiautomator2') {
       await element.click();
       if (!(await driver.isKeyboardShown())) {

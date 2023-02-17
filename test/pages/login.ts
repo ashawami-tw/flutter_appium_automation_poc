@@ -28,12 +28,12 @@ class Login {
   }
 
   public async setUsername(username: string) {
-    await Common.handle(this.username);
+    await Common.handleClickForUiAutomator2(await this.username);
     await this.username.addValue(username);
   }
 
   public async setPassword(password: string) {
-    await Common.handle(this.password);
+    await Common.handleClickForUiAutomator2(await this.password);
     await this.password.addValue(password);
   }
 
