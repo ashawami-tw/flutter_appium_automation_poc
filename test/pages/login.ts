@@ -1,3 +1,5 @@
+import Common from '../helpers/common';
+
 class Login {
   private readonly automationName: string;
 
@@ -26,14 +28,12 @@ class Login {
   }
 
   public async setUsername(username: string) {
-    await this.username.click();
-    await driver.hideKeyboard();
+    await Common.handle(this.username);
     await this.username.addValue(username);
   }
 
   public async setPassword(password: string) {
-    await this.password.click();
-    await driver.hideKeyboard();
+    await Common.handle(this.password);
     await this.password.addValue(password);
   }
 
