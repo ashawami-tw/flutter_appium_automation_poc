@@ -15,7 +15,8 @@ describe('Add items to the cart', () => {
     login = new LoginFlutter();
     catalog = new CatalogFlutter();
     cart = new CartFlutter();
-    catalogNative = new Catalog('');
+    // TODO: Check NATIVE_APP context for XCUITest and make automationName dynamic depending on Android/IOS device
+    catalogNative = new Catalog('uiautomator2');
   });
 
   it('should cart page open after clicking on cart button', async () => {
