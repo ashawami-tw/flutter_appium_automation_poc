@@ -35,3 +35,15 @@ fileignoreconfig:
 fileignoreconfig:
 - filename: package-lock.json
   checksum: ab41e474b19c6e7a28572ed1a6482ae3dc762d3475d372b87bf40227174495a4
+
+fileignoreconfig:
+- filename: .env
+  checksum: 2981d4df4633928c94ba213fc255f2c18088e2e8ddc680631cdad673e5fa53df
+- filename: package-lock.json
+  checksum: 7a35785f3f4ef95f371cafa04a1ce884aaee066a469707ae0677d65c217fd3b2
+- filename: api/github/schema/create_repo_schema.ts
+  checksum: e08737f950a6873ddf2bb0fac74bf1b3b808612a108f70326e7564b1d56b426a
+
+fileignoreconfig:
+- filename: .env
+  checksum: f53f2c116836e6f6303f4e48bdcb704f32239f3085fa77e62f98c39adfb78d5b
