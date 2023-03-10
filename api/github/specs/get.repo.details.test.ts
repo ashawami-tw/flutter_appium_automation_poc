@@ -16,7 +16,7 @@ describe('Get repo detail', function () {
     this.username = res.body.owner.login;
   });
 
-  it('get repo details in github', async function () {
+  it('get repo details from github', async function () {
     await repo.getDetails(
       testData.repoName,
       this.username,

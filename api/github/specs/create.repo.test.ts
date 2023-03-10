@@ -9,7 +9,7 @@ describe('Create repo', function () {
     repo = new Repo();
   });
 
-  it('create test repo in github', async function () {
+  it('create new repo in github', async function () {
     const res = await repo.create(
       testData.repoName,
       testData.description,

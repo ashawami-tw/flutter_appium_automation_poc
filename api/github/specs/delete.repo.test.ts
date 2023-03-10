@@ -16,7 +16,7 @@ describe('Delete repo', function () {
     this.username = res.body.owner.login;
   });
 
-  it('delete test repo in github', async function () {
+  it('delete repo from github', async function () {
     await repo._delete(testData.repoName, this.username, testData.bearerToken);
 
     repo.spec.response().to.have.status(204);
