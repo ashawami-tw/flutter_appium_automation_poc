@@ -1,7 +1,7 @@
 import { testData } from '../test_data/testdata';
 import Repo from '../requests/repo';
 
-describe('Update repo', () => {
+describe('Update repo', function() {
   let repo: Repo;
 
   beforeEach(async function () {

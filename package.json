@@ -8,7 +8,7 @@
     "android-test": "wdio run config/wdio.android.conf.ts",
     "ios-test": "wdio run config/wdio.ios.conf.ts",
     "flutter-test": "wdio run config/wdio.flutter.conf.ts",
-    "api-test": "mocha -r ts-node/register api/*.ts api/*/*/*.ts"
+    "api-test": "mocha -r ts-node/register api/*.ts api/*/*/*.ts --reporter mochawesome --reporter-options reportDir=./report/mochasome-report,reportFilename=report"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,8 @@
     "appium-xcuitest-driver": "^4.16.12",
     "chai": "^4.3.7",
     "dotenv": "^16.0.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-report-generator": "^6.2.0",
     "pactum": "^3.3.2",
     "pactum-json-reporter": "^1.0.2",
     "ts-node": "^10.9.1",
