@@ -1,19 +1,19 @@
 import { spec } from 'pactum';
 
-class DeleteRepo {
+class RepoDetails {
   public readonly spec;
 
   constructor() {
     this.spec = spec();
   }
 
-  public async deleteRepo(
+  public async getDetails(
     repoName: string,
     username: string,
     bearerToken: string
   ) {
     this.spec
-      .delete('/repos/{username}/{repo}')
+      .get('/repos/{username}/{repo}')
       .withPathParams({
         repo: repoName,
         username: username,
@@ -26,4 +26,4 @@ class DeleteRepo {
   }
 }
 
-export default DeleteRepo;
+export default RepoDetails;
