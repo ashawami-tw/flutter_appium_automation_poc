@@ -25,7 +25,7 @@ describe('Get repo detail', () => {
     repo.spec.response().to.have.status(200);
     repo.spec.response().to.have.jsonMatch({
       name: testData.repoName,
-      private: testData.isPrivate,
+      private: !testData.isPrivate,
     });
   });
 

@@ -5,7 +5,7 @@ const githubBearerToken = process.env.GITHUB_BEARER_TOKEN;
 export const testData = {
   repoName: 'Test-repository',
   description: 'This is a test repository created by Postman',
-  isPrivate: false,
+  isPrivate: true,
   bearerToken: `Bearer ${githubBearerToken}`,
   username: ''
 };

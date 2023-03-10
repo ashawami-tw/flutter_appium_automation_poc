@@ -20,7 +20,7 @@ describe('Create repo', () => {
     repo.spec.response().to.have.jsonSchema(schema);
     repo.spec.response().to.have.jsonMatch({
       name: testData.repoName,
-      private: testData.isPrivate,
+      private: !testData.isPrivate,
     });
   });
 
