@@ -1,24 +1,25 @@
 import { testData } from '../test_data/testdata';
 import Repo from '../requests/repo';
 
-describe('Get repo detail', () => {
+describe('Get repo detail', function () {
   let repo: Repo;
 
-  beforeEach(async () => {
+  beforeEach(async function () {
     repo = new Repo();
-    await repo.create(
+    const res = await repo.create(
       testData.repoName,
       testData.description,
       testData.bearerToken
     );
 
     repo.spec.response().to.have.status(201);
+    this.username = res.body.owner.login;
   });
 
-  it('get repo details in github', async () => {
+  it('get repo details in github', async function () {
     await repo.getDetails(
       testData.repoName,
-      testData.username,
+      this.username,
       testData.bearerToken
     );
 
@@ -29,12 +30,8 @@ describe('Get repo detail', () => {
     });
   });
 
-  afterEach(async () => {
-    await repo._delete(
-      testData.repoName,
-      testData.username,
-      testData.bearerToken
-    );
+  afterEach(async function () {
+    await repo._delete(testData.repoName, this.username, testData.bearerToken);
 
     repo.spec.response().to.have.status(204);
   });

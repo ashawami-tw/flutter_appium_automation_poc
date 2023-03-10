@@ -4,21 +4,22 @@ import Repo from '../requests/repo';
 describe('Update repo', () => {
   let repo: Repo;
 
-  beforeEach(async () => {
+  beforeEach(async function () {
     repo = new Repo();
-    await repo.create(
+    const res = await repo.create(
       testData.repoName,
       testData.description,
       testData.bearerToken
     );
 
     repo.spec.response().to.have.status(201);
+    this.username = res.body.owner.login;
   });
 
-  it('convert public repo to private repo', async () => {
+  it('convert public repo to private repo', async function () {
     await repo.changeToPrivateMode(
       testData.repoName,
-      testData.username,
+      this.username,
       testData.bearerToken
     );
 
@@ -29,12 +30,8 @@ describe('Update repo', () => {
     });
   });
 
-  afterEach(async () => {
-    await repo._delete(
-      testData.repoName,
-      testData.username,
-      testData.bearerToken
-    );
+  afterEach(async function () {
+    await repo._delete(testData.repoName, this.username, testData.bearerToken);
 
     repo.spec.response().to.have.status(204);
   });

@@ -7,5 +7,4 @@ export const testData = {
   description: 'This is a test repository created by Postman',
   isPrivate: true,
   bearerToken: `Bearer ${githubBearerToken}`,
-  username: '',
 };

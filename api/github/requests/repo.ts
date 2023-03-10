@@ -19,7 +19,7 @@ class Repo {
         Authorization: bearerToken,
       });
 
-    await this.spec.toss();
+    return await this.spec.toss();
   }
 
   public async _delete(
