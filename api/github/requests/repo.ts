@@ -59,6 +59,29 @@ class Repo {
 
     await this.spec.toss();
   }
+
+  public async changeToPrivateMode(
+    repoName: string,
+    username: string,
+    bearerToken: string
+  ) {
+    this.spec = spec();
+    this.spec
+      .patch('/repos/{username}/{repo}')
+      .withPathParams({
+        repo: repoName,
+        username: username,
+      })
+      .withJson({
+        name: repoName,
+        private: true,
+      })
+      .withHeaders({
+        Authorization: bearerToken,
+      });
+
+    await this.spec.toss();
+  }
 }
 
 export default Repo;
