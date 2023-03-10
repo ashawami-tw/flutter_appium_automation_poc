@@ -1,15 +1,15 @@
-import { spec, expect } from 'pactum';
-import { schema } from '../schema/create_repo_schema';
+import { schema } from '../schema/create.repo.schema';
 import { testData } from '../test_data/testdata';
 import CreateRepo from '../requests/create.repo';
+import DeleteRepo from '../requests/delete.repo';
 
 describe('Create repo', () => {
   let create: CreateRepo;
-  let _spec;
+  let _delete: DeleteRepo;
 
   beforeEach(() => {
-    _spec = spec();
-    create = new CreateRepo(_spec);
+    create = new CreateRepo();
+    _delete = new DeleteRepo();
   });
 
   it('create test repo in github', async () => {
@@ -19,11 +19,21 @@ describe('Create repo', () => {
       testData.bearerToken
     );
 
-    _spec.response().to.have.status(201);
-    _spec.response().to.have.jsonSchema(schema);
-    _spec.response().to.have.jsonMatch({
+    create.spec.response().to.have.status(201);
+    create.spec.response().to.have.jsonSchema(schema);
+    create.spec.response().to.have.jsonMatch({
       name: testData.repoName,
       private: testData.isPrivate,
     });
+  });
+
+  afterEach(async () => {
+    await _delete.deleteRepo(
+      testData.repoName,
+      testData.username,
+      testData.bearerToken
+    );
+
+    _delete.spec.response().to.have.status(204);
   });
 });

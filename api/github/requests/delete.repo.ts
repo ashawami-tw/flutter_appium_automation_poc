@@ -1,22 +1,22 @@
 import { spec } from 'pactum';
 
-class CreateRepo {
+class DeleteRepo {
   public readonly spec;
 
   constructor() {
     this.spec = spec();
   }
 
-  public async newRepo(
+  public async deleteRepo(
     repoName: string,
-    description: string,
+    username: string,
     bearerToken: string
   ) {
     this.spec
-      .post('/user/repos')
-      .withJson({
-        name: repoName,
-        description: description,
+      .delete('/repos/{username}/{repo}')
+      .withPathParams({
+        repo: repoName,
+        username: username,
       })
       .withHeaders({
         Authorization: bearerToken,
@@ -26,4 +26,4 @@ class CreateRepo {
   }
 }
 
-export default CreateRepo;
+export default DeleteRepo;
