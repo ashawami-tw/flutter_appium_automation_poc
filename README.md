@@ -106,7 +106,7 @@ npm run api-test
   - retry mechanism
 - Reporting can be done
   - using `pactum-json-reporter` which shows all API calls made
-  - using `mochawesome' reporting can be used for number of tests Passed/Failed
+  - using `mochawesome` reporting can be used for number of tests Passed/Failed
 - For this POC GitHub REST API are used
   - tests
     - Create new repository
@@ -119,7 +119,6 @@ npm run api-test
 - New if compared with Supertest
 - Test Result -<img width="1216" alt="Screenshot 2023-03-13 at 1 04 19 PM" src="https://user-images.githubusercontent.com/87519889/224644782-16222c99-2f76-473c-9df6-ce0ef1d59938.png">
 
-
 ## Next Steps
 
 - Compare with other tools such as `supertest`
@@ -131,6 +130,7 @@ npm run api-test
     - duplication of services such as SMS service
     - Impact while running tests on BrowserStack
     - Scalability
+    - Maintainability
 
 ## Reference Links
 
