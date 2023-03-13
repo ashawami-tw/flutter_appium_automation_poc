@@ -11,13 +11,17 @@ class Catalog {
 
   private addButton = '//android.widget.Button[@content-desc="ADD"]';
   private scrollView = 'android.widget.ScrollView';
+  private ioscart =
+    '**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeButton';
 
   private get pageTitle() {
     return $('~Catalog');
   }
 
   private get cart() {
-    return $('(//android.widget.Button)[1]');
+    return this.automationName === 'uiautomator2'
+      ? $('(//android.widget.Button)[1]')
+      : $(`-ios class chain:${this.ioscart}`);
   }
 
   public async scrollTillItemIsDisplayedUsingUiSelector(item: string) {
