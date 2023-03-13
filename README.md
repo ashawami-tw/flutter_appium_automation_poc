@@ -117,8 +117,8 @@ npm run api-test
   - base test is added which does the setup for all the tests
 - [PactumJS GitHub Repository] is maintained, last published 3 months ago
 - New if compared with Supertest
-- Test Result -
-  ![Alt text](/Users/ashawami/Documents/Screenshot 2023-03-13 at 1.04.19 PM.png)
+- Test Result -<img width="1216" alt="Screenshot 2023-03-13 at 1 04 19 PM" src="https://user-images.githubusercontent.com/87519889/224644782-16222c99-2f76-473c-9df6-ce0ef1d59938.png">
+
 
 ## Next Steps
 
