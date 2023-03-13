@@ -70,3 +70,76 @@
 [flutter pre-requisite]: https://www.browserstack.com/docs/app-automate/appium/test-hybrid-apps/test-flutter-apps#preprocess-flutter-app-for-testing
 [appium flutter driver github]: https://github.com/appium-userland/appium-flutter-driver
 [how can we automate native + flutter applications]: https://medium.com/@shoban.manohar/challenges-testing-flutter-mobile-applications-1da67057d72d
+
+---
+
+# PactumJS
+
+## Installation
+
+```
+npm i
+npm run api-test
+```
+
+## Dependencies to run API tests
+
+- [Personal Access Token] - create github access token and use as `GITHUB_BEARER_TOKEN` under `.env` file
+
+## Reporting
+
+`report` folder will be generated after running tests which will contain `mochasome-report` and `api-json-report`
+
+## About POC on PactumJS
+
+- [PactumJS] is Free & OpenSource REST API Testing Tool
+- Mocha framework is used to write the tests
+- It supports
+  - CRUD operations
+  - Response Schema validation
+  - Authentication
+  - it uses builder style to write the tests
+  - `toss()` function
+    - can be used to separate API call and assertions
+    - it also returns the response
+  - Default headers can be set on test suit level
+  - retry mechanism
+- Reporting can be done
+  - using `pactum-json-reporter` which shows all API calls made
+  - using `mochawesome' reporting can be used for number of tests Passed/Failed
+- For this POC GitHub REST API are used
+  - tests
+    - Create new repository
+    - Delete repository
+    - Get repository details
+    - Change repository from public mode to private mode
+  - API calls and validations are seperated
+  - base test is added which does the setup for all the tests
+- [PactumJS GitHub Repository] is maintained, last published 3 months ago
+- New if compared with Supertest
+- Test Result -
+  ![Alt text](/Users/ashawami/Documents/Screenshot 2023-03-13 at 1.04.19 PM.png)
+
+## Next Steps
+
+- Compare with other tools such as `supertest`
+- Timeout handling
+- Running as part of pipeline
+- Decision on creating different framework for API Tests or maintaining them under single framework which contains UI + API tests
+  - Impact of maintaining UI + API tests in single framework depends on following criteria
+    - duplications of data
+    - duplication of services such as SMS service
+    - Impact while running tests on BrowserStack
+    - Scalability
+
+## Reference Links
+
+- [PactumJS API Doc]
+- [PactumJS Comparison with different tools]
+
+[//]: #
+[personal access token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+[pactumjs]: https://pactumjs.github.io/
+[pactumjs api doc]: https://pactumjs.github.io/api/requests/spec.html
+[pactumjs comparison with different tools]: https://dev.to/asaianudeep/api-testing-tools-in-javascript-22d8
+[pactumjs github repository]: https://github.com/pactumjs/pactum
