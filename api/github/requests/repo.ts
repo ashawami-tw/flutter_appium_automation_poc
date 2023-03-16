@@ -42,6 +42,20 @@ class Repo {
       .get(`/repos/${username}/${repoName}`)
       .set(this.getHeaders(bearerToken));
   }
+
+  public async changeToPrivateMode(
+    repoName: string,
+    username: string,
+    bearerToken: string
+  ) {
+    return await request('https://api.github.com')
+      .patch(`/repos/${username}/${repoName}`)
+      .set(this.getHeaders(bearerToken))
+      .send({
+        name: repoName,
+        private: true,
+      });
+  }
 }
 
 export default Repo;
