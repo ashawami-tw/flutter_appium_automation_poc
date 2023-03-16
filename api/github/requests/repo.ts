@@ -1,6 +1,8 @@
 const request = require('supertest');
 
 class Repo {
+  private readonly baseUrl = 'https://api.github.com';
+
   private getHeaders(bearerToken: string) {
     return {
       'Content-Type': 'application/json',
@@ -14,7 +16,7 @@ class Repo {
     description: string,
     bearerToken: string
   ) {
-    return await request('https://api.github.com')
+    return await request(this.baseUrl)
       .post('/user/repos')
       .set(this.getHeaders(bearerToken))
       .send({
@@ -28,7 +30,7 @@ class Repo {
     username: string,
     bearerToken: string
   ) {
-    return await request('https://api.github.com')
+    return await request(this.baseUrl)
       .delete(`/repos/${username}/${repoName}`)
       .set(this.getHeaders(bearerToken));
   }
@@ -38,7 +40,7 @@ class Repo {
     username: string,
     bearerToken: string
   ) {
-    return await request('https://api.github.com')
+    return await request(this.baseUrl)
       .get(`/repos/${username}/${repoName}`)
       .set(this.getHeaders(bearerToken));
   }
@@ -48,7 +50,7 @@ class Repo {
     username: string,
     bearerToken: string
   ) {
-    return await request('https://api.github.com')
+    return await request(this.baseUrl)
       .patch(`/repos/${username}/${repoName}`)
       .set(this.getHeaders(bearerToken))
       .send({
