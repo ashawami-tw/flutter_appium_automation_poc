@@ -1,7 +1,7 @@
 import LoginFlutter from '../pages/login';
 import CatalogFlutter from '../pages/catalog';
 import CartFlutter from '../pages/cart';
-import Catalog from '../../../test/pages/catalog';
+import Catalog from '../../../ui/test/pages/catalog';
 import { testData } from '../test_data/testdata.flutter';
 import { assert } from 'chai';
 
