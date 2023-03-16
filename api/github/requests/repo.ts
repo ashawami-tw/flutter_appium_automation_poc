@@ -32,6 +32,16 @@ class Repo {
       .delete(`/repos/${username}/${repoName}`)
       .set(this.getHeaders(bearerToken));
   }
+
+  public async getDetails(
+    repoName: string,
+    username: string,
+    bearerToken: string
+  ) {
+    return await request('https://api.github.com')
+      .get(`/repos/${username}/${repoName}`)
+      .set(this.getHeaders(bearerToken));
+  }
 }
 
 export default Repo;
